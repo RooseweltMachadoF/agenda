@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:agenda_btg/app/cadastro/lista_cadastro_page.dart';
+import 'package:agenda_btg/app/cadastro/pages/lista_cadastro_page.dart';
 import 'package:agenda_btg/app/cadastro/models/person_model.dart';
 import 'package:agenda_btg/app/controllers/app_controller.dart';
 import 'package:agenda_btg/helpers/cadastro_helper_db.dart';
@@ -10,7 +10,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:mobx/mobx.dart';
 import 'dart:math';
-import '../cadastro_page.dart';
+import '../pages/cadastro_page.dart';
 part 'cadastro_controller.g.dart';
 
 class CadastroController = _CadastroControllerBase with _$CadastroController;

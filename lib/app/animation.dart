@@ -1,5 +1,6 @@
-import 'package:agenda_btg/app/cadastro/cadastro_page.dart';
-import 'package:agenda_btg/app/cadastro/lista_cadastro_page.dart';
+import 'package:agenda_btg/app/cadastro/pages/cadastro_page.dart';
+import 'package:agenda_btg/app/cadastro/pages/lista_cadastro_page.dart';
+import 'package:agenda_btg/app/cadastro/pages/lista_cadastro_page.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 

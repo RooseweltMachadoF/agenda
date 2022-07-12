@@ -56,9 +56,6 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
                   color: Color.fromARGB(255, 35, 78, 152),
                   style: BorderStyle.solid,
                   width: 3)),
-          labelStyle: TextStyle(
-            color: Colors.black,
-          ),
           labelText: widget.labelText,
           prefixIcon: widget.prefixIcon ?? Icon(Icons.person),
         ),

@@ -1,9 +1,10 @@
-import 'package:agenda_btg/app/cadastro/cadastro_page.dart';
+import 'package:agenda_btg/app/cadastro/pages/cadastro_page.dart';
 import 'package:agenda_btg/app/cadastro/controllers/cadastro_controller.dart';
 import 'package:agenda_btg/app/cadastro/models/person_model.dart';
 import 'package:agenda_btg/app/controllers/app_controller.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/src/size_extension.dart';
 import 'dart:io';
 
 import 'package:url_launcher/url_launcher.dart';
@@ -21,24 +22,32 @@ class CardPerson extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(8.0.sp),
         child: Container(
-          height: 105,
+          height: 105.h,
           decoration: BoxDecoration(
               color: AppController.instance.switchTheme.value
                   ? Colors.blueGrey
-                  : const Color.fromRGBO(100, 255, 218, 0.5),
+                  : const Color.fromRGBO(5, 19, 42, 0.5),
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(width: 2, color: Colors.black)),
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 20.0,
+                  spreadRadius: 0.0,
+                  offset: Offset(5, 5),
+                  color: Colors.grey,
+                )
+              ],
+              border: Border.all(width: 1, color: Colors.black)),
           child: Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(10.0.sp),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 personModel.img != null && personModel.img != ''
                     ? Container(
-                        width: 80.0,
-                        height: 80.0,
+                        width: 80.0.w,
+                        height: 80.0.h,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
@@ -46,73 +55,73 @@ class CardPerson extends StatelessWidget {
                               fit: BoxFit.cover),
                         ),
                       )
-                    : const Icon(
+                    : Icon(
                         Icons.person,
-                        size: 55,
+                        size: 55.sp,
                         color: Colors.white,
                       ),
                 Padding(
-                  padding: EdgeInsets.only(left: 10.0),
+                  padding: EdgeInsets.only(left: 10.0.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       SizedBox(
-                        width: 100,
+                        width: 100.w,
                         child: Text(
                           personModel.name,
                           overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                              fontSize: 16.0, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontSize: 16.0.sp, fontWeight: FontWeight.bold),
                         ),
                       ),
-                      const SizedBox(
-                        height: 5,
+                      SizedBox(
+                        height: 5.h,
                       ),
                       Row(
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.phone,
-                            size: 13,
+                            size: 13.sp,
                           ),
-                          const SizedBox(
-                            width: 8,
+                          SizedBox(
+                            width: 8.w,
                           ),
                           Text(
                             personModel.phone,
-                            style: const TextStyle(fontSize: 13.0),
+                            style: TextStyle(fontSize: 13.0.sp),
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 5,
+                      SizedBox(
+                        height: 5.h,
                       ),
                       Row(
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.document_scanner_outlined,
-                            size: 13,
+                            size: 13.sp,
                           ),
-                          const SizedBox(
-                            width: 8,
+                          SizedBox(
+                            width: 8.w,
                           ),
                           Text(
                             personModel.cpf,
-                            style: const TextStyle(fontSize: 13.0),
+                            style: TextStyle(fontSize: 13.0.sp),
                           ),
                         ],
                       ),
                       Row(
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.date_range_rounded,
-                            size: 13,
+                            size: 13.sp,
                           ),
-                          const SizedBox(
-                            width: 8,
+                          SizedBox(
+                            width: 8.w,
                           ),
                           Text(
                             personModel.nascimento,
-                            style: const TextStyle(fontSize: 13.0),
+                            style: TextStyle(fontSize: 13.0.sp),
                           ),
                         ],
                       )
@@ -135,17 +144,17 @@ class CardPerson extends StatelessWidget {
                                         personModel: personModel,
                                       )));
                         },
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.edit,
-                          size: 20,
+                          size: 20.sp,
                         )),
                     IconButton(
                         onPressed: () async {
                           await controller.deletePerson(context, personModel);
                         },
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.delete_forever,
-                          size: 20,
+                          size: 20.sp,
                         )),
                   ],
                 )
@@ -193,12 +202,6 @@ class CardPerson extends StatelessWidget {
                                       )));
                         },
                         child: Text("Editar")),
-                    TextButton(
-                        onPressed: () async {
-                          await controller.deletePerson(context, personModel);
-                          Navigator.pop(context);
-                        },
-                        child: Text("Excluir")),
                   ],
                 ),
               );

@@ -6,12 +6,12 @@ class ThemeLigth {
   ThemeLigth._();
 
   ThemeData theme = ThemeData(
-      primaryColor: Colors.grey,
+      primaryColor: Color.fromRGBO(5, 19, 42, 1),
       brightness: Brightness.light,
-      textSelectionTheme: const TextSelectionThemeData(
-        cursorColor: Colors.grey,
-        selectionColor: Colors.blueGrey,
-      ),
+      // textSelectionTheme: const TextSelectionThemeData(
+      //   cursorColor: Colors.grey,
+      //   selectionColor: Colors.blueGrey,
+      // ),
       visualDensity: VisualDensity.adaptivePlatformDensity,
       appBarTheme: AppBarTheme(
           centerTitle: true, backgroundColor: Colors.blueGrey[700]));

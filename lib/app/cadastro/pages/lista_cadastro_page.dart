@@ -12,7 +12,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'cadastro_page.dart';
 
 class ListaCadastroPage extends StatefulWidget {
-  const ListaCadastroPage({Key? key}) : super(key: key);
+  final CadastroController? controller;
+  const ListaCadastroPage({Key? key, this.controller}) : super(key: key);
 
   @override
   State<ListaCadastroPage> createState() => _ListaCadastroPageState();
@@ -34,7 +35,7 @@ class _ListaCadastroPageState extends State<ListaCadastroPage>
         .animate(CurvedAnimation(
             parent: animationController,
             curve: Interval(0.325, 0.8, curve: Curves.ease)));
-    controller = CadastroController();
+    controller = widget.controller ?? CadastroController();
 
     controller.getAllPersons();
   }
